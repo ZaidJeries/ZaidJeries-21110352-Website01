@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shooter Games</title>
+<link rel="icon" type="image/png" href="../images/LOGGO.PNG">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('../images/BACKGROUIND.PNG') no-repeat center center fixed;
+      background-size: cover;
+    }
+  
+    .navbar {
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      padding: 0 20px;
+      background:#111;
+    }
+  
+    .navbar-logo a {
+      display: flex;
+    }
+  
+    .logo {
+      width: 350px;
+      height: 72px;
+      margin-right: 10px;
+    }
+  
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .navbar li {
+      margin: 0 20px;
+    }
+  
+    .navbar a { 
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s, transform 0.3s;
+    }
+  
+    .navbar a:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #e4d9e6;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navbar a:hover:before,
+    .navbar a:focus:before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  
+    .dropdown {
+      position: relative;
+    }
+  
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #000000;
+      min-width: 160px;
+      border-radius: 10px;
+    }
+  
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+  
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+  
+    
+  
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  
+    .logo-symbol {
+    display: inline-block;
+    width: 50px; 
+    height: 50px;
+    background-image: url('../images/loggo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px; 
+    vertical-align: middle;
+  }
+  
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+    .game-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .game {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(to bottom, #7008e8, #d50756);
+    }
+  
+  
+    .game img {
+      max-width: 200px;
+      max-height: 200px;
+    }
+  
+    .game-details {
+      flex: 1;
+      margin: 0 10px;
+    }
+  
+    .game-price {
+      font-weight: bold;
+    }
+  
+    .button-container {
+      display: flex;
+      align-items: center;
+    }
+  
+    .button {
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      padding: 8px 12px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+  
+    .button:hover {
+      background-color: #111;
+    }
+
+    @media screen and (max-width: 768px) {
+    .navbar {
+      height: auto;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .navbar ul {
+      margin-top: 20px;
+    }
+
+    .navbar li {
+      margin: 10px 10px;
+    }
+
+    .logo {
+      width: 250px;
+      height: auto;
+      margin: 10px auto;
+    }
+
+    .game-list {
+      padding: 10px;
+    }
+
+    .game {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .game img {
+      max-width: 100%;
+      max-height: auto;
+    }
+
+    .game-details {
+      margin-top: 10px;
+    }
+
+    .game-price {
+      margin-top: 5px;
+    }
+
+    .button-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .button {
+      margin: 5px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+    .navbar {
+      height: auto;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .navbar ul {
+      margin-top: 20px;
+    }
+
+    .navbar li {
+      margin: 10px 0;
+    }
+
+    .logo {
+      width: 250px;
+      height: auto;
+      margin: 10px auto;
+    }
+
+    .game-list {
+      padding: 10px;
+    }
+
+    .game {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .game img {
+      max-width: 100%;
+      max-height: auto;
+    }
+
+    .game-details {
+      margin-top: 10px;
+    }
+
+    .game-price {
+      margin-top: 5px;
+    }
+
+    .button-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .button {
+      margin: 5px 0;
+    }
+  }
+
+  }
+    </style>
+
+<div class="navbar">
+  <div class="navbar-logo">
+      <a href="Home.php">
+          <img src="../images/logo.png" alt="Logo" class="logo">
+      </a>
+  </div>
+
+  <ul>
+      <li><a href="Home.php">Home</a></li>
+      <li class="dropdown">
+          <a href="#">Games ▼<i class="gamesdown"></i></a>
+          <div class="dropdown-content">
+              <a href="horror.html">Horror</a>
+              <a href="Adventure.html">Adventure</a>
+              <a href="Shooter.html">Shooter</a>
+              <a href="Sport.html">Sport</a>
+              <a href="Fighting.html">Fighting</a>
+          </div>
+      </li>
+      
+  
+         <li><a href="login.php">Login/Register</a></li>
+         <li><a href="logout.php">Log Out</a></li>
+         <li><a href="cart-user.php"><i class="fas fa-shopping-cart"></i></a></li>
+      
+  </ul>
+</div>
+  
+  <div class="game-list">
+
+    <div class="game">
+      <img src="https://cdn.arstechnica.net/wp-content/uploads/2020/04/valorant-listing-800x450.jpg" alt="Val">
+      <div class="game-details">
+        <h3>Valorant</h3>
+        <p>5v5 character-based tactical FPS where precise gunplay meets unique agent abilities</p>
+        <p class="game-price">Free</p>
+      </div>
+      <form method="post" action="cart.php">
+        <input type="hidden" name="game_name" value="Valorant">
+        <input type="hidden" name="price" value="0">
+        <button class="button" type="submit" name="add_to_cart">Add to Cart</button>
+    </form>
+    </div>
+
+    <div class="game">
+      <img src="https://news.xbox.com/en-us/wp-content/uploads/sites/2/2022/10/OW2-be9287b234afbe7898ac.jpg" alt="OV2">
+      <div class="game-details">
+        <h3>OverWatch 2</h3>
+        <p>Overwatch 2 is a free-to-play, always-on, and ever-evolving live game. Team up with friends regardless of platform and jump into the reimagined PvP experience.
+        </p>
+        <p class="game-price">Free</p>
+      </div>
+      <form method="post" action="cart.php">
+        <input type="hidden" name="game_name" value="OverWatch2">
+        <input type="hidden" name="price" value="0">
+        <button class="button" type="submit" name="add_to_cart">Add to Cart</button>
+    </form>
+    </div>
+
+    <div class="game">
+      <img src="https://phantom-marca.unidadeditorial.es/04d687a87115211d9a759c74116d5826/resize/828/f/jpg/assets/multimedia/imagenes/2023/03/17/16790510953870.jpg" alt="CS:GO">
+      <div class="game-details">
+        <h3>Counter Strike:Global Offenseve</h3>
+        <p>Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content</p>
+        <p class="game-price">Free</p>
+      </div>
+      <form method="post" action="cart.php">
+        <input type="hidden" name="game_name" value="Counter Strike:Global Offenseve">
+        <input type="hidden" name="price" value="0">
+        <button class="button" type="submit" name="add_to_cart">Add to Cart</button>
+    </form>
+    </div>
+
+    <div class="game">
+      <img src="https://cdn.akamai.steamstatic.com/steam/apps/10/header.jpg?t=1666823513" alt="CS-1.6">
+      <div class="game-details">
+        <h3>Counter-Strike 1.6</h3>
+        <p>Counter-Strike (CS) is a series of multiplayer tactical first-person shooter video games in which teams of terrorists battle to perpetrate an act of terror (bombing, hostage-taking, assassination) while counter-terrorists try to prevent it (bomb defusal, hostage rescue, escort mission)</p>
+        <p class="game-price">Free</p>
+      </div>
+      <form method="post" action="cart.php">
+        <input type="hidden" name="game_name" value="Counter Strike1.6">
+        <input type="hidden" name="price" value="0">
+        <button class="button" type="submit" name="add_to_cart">Add to Cart</button>
+    </form>
+    </div>
+
+    <div class="game">
+        <img src="https://assets-prd.ignimgs.com/2023/02/20/wolfenstein-new-order-object-1676884361082.png" alt="WS:NO">
+        <div class="game-details">
+          <h3>wolfenstein: the new order</h3>
+          <p>The New Order reignites the series that created the first-person shooter genre. Wolfenstein offers a deep game narrative packed with action, adventure and first-person combat.</p>
+          <p class="game-price">$39.99</p>
+        </div>
+        <form method="post" action="cart.php">
+          <input type="hidden" name="game_name" value="wolfenstein: the new order">
+          <input type="hidden" name="price" value="39.99">
+          <button class="button" type="submit" name="add_to_cart">Add to Cart</button>
+      </form>
+      </div>
+
+      <div class="game">
+        <img src="https://www.global-esports.news/wp-content/uploads/2022/09/CoD-Modern-Warfare-2-Multiplayer-1.jpg" alt="COD:MW2">
+        <div class="game-details">
+          <h3>Call Of Duty:Modern Warfare2</h3>
+          <p>Squad up and fight alongside the iconic operators of Task Force 141 with the return of Modern Warfare.</p>
+          <p class="game-price">$39.99</p>
+        </div>
+        <form method="post" action="cart.php">
+          <input type="hidden" name="game_name" value="Call Of Duty:Modern Warfare2">
+          <input type="hidden" name="price" value="39.99">
+          <button class="button" type="submit" name="add_to_cart">Add to Cart</button>
+      </form>
+      </div>
+
+
+  </div>
+</body>
+</html>
